@@ -94,8 +94,8 @@ public class REC2 {
 		job1.setOutputKeyClass(Text.class);
 		job1.setOutputValueClass(IntWritable.class);
 		job1.setNumReduceTasks(1);
-		FileInputFormat.addInputPaths(job1, "C:/Users/zhangxue/Desktop/recinput.txt");
-		FileOutputFormat.setOutputPath(job1, new Path("C:/Users/zhangxue/Desktop/outrec1"));
+		FileInputFormat.addInputPaths(job1, arg1);
+		FileOutputFormat.setOutputPath(job1, new Path(arg2));
 		job1.waitForCompletion(true);
 		
 		Job job2 =new Job(conf);
@@ -105,8 +105,8 @@ public class REC2 {
 		job2.setOutputKeyClass(Text.class);
 		job2.setOutputValueClass(Text.class);
 		job2.setNumReduceTasks(1);
-		FileInputFormat.addInputPaths(job2, "C:/Users/zhangxue/Desktop/outrec1/part-r-00000");
-		FileOutputFormat.setOutputPath(job2, new Path("C:/Users/zhangxue/Desktop/outrec2"));
+		FileInputFormat.addInputPaths(job2, arg2+"/part-r-00000");
+		FileOutputFormat.setOutputPath(job2, new Path(arg3));
 		System.exit(job2.waitForCompletion(true)?0:1);
 	}
 }
