@@ -48,8 +48,8 @@ public class REC1 {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		job.setNumReduceTasks(1);
-		FileInputFormat.addInputPaths(job, "C:/Users/zhangxue/Desktop/recinput.txt");
-		FileOutputFormat.setOutputPath(job, new Path("C:/Users/zhangxue/Desktop/outrec1"));
+		FileInputFormat.addInputPaths(job,arg1);
+		FileOutputFormat.setOutputPath(job, new Path(arg2));
 		System.exit(job.waitForCompletion(true)?0:1);
 	}
 
